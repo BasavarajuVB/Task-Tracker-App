@@ -1,38 +1,1041 @@
-.App {
+Global Styles and Color Palette
+:root {
+  --primary-color: #4a4a4a;
+  --secondary-color: #6a6a6a;
+  --accent-color: #3498db;
+  --background-color: #f4f4f4;
+  --text-color: #333;
+  --success-color: #2ecc71;
+  --warning-color: #f39c12;
+  --error-color: #e74c3c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.navbar-filters {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.filter-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Task Form Styles */
+.task-form-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.task-form-container h2 {
   text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-group {
+  margin-bottom: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: darken(#3498db, 10%);
+}
+
+/* Task List Styles */
+.task-list-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.task-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.task-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.task-card:hover {
+  transform: scale(1.02);
+}
+
+.task-card.task-pending {
+  border-left: 5px solid var(--warning-color);
+}
+
+.task-card.task-inProgress {
+  border-left: 5px solid var(--accent-color);
+}
+
+.task-card.task-completed {
+  border-left: 5px solid var(--success-color);
+}
+
+.task-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.btn-edit, .btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.btn-edit {
+  color: var(--accent-color);
+}
+
+.btn-delete {
+  color: var(--error-color);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar-filters {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Modern Form Styling */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --background-color: #ecf0f1;
+  --input-background: #ffffff;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+.task-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 1px;
+  background: linear-gradient(135deg, #f6f8f9 0%, #e5ebee 100%);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--secondary-color);
+  transition: color var(--transition-speed);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: var(--border-radius);
+  background-color: var(--input-background);
+  font-size: 16px;
+  transition: all var(--transition-speed) ease;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.btn-submit,
+.btn-cancel {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+.btn-submit {
+  background-color: var(--primary-color);
   color: white;
+  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
 }
 
-.App-link {
-  color: #61dafb;
+.btn-submit:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
 }
 
-@keyframes App-logo-spin {
+.btn-cancel {
+  background-color: #95a5a6;
+  color: white;
+  box-shadow: 0 4px 6px rgba(149, 165, 166, 0.2);
+}
+
+.btn-cancel:hover {
+  background-color: #7f8c8d;
+  transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .task-form {
+    padding: 20px;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn-submit,
+  .btn-cancel {
+    width: 100%;
+  }
+}
+
+/* Validation and Error States */
+.form-group.error input,
+.form-group.error textarea,
+.form-group.error select {
+  border-color: #e74c3c;
+}
+
+.form-error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Animation for Form Entrance */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: scale(0.9);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: scale(1);
   }
+}
+
+.task-form {
+  animation: fadeIn 0.4s ease-out;
+}
+/* Global Styles with Advanced Design */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --background-color: #f4f7f6;
+  --text-color: #333;
+  --white: #ffffff;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Navbar Styling with Fixed Position */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.navbar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.navbar-filters {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 8px 15px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+/* Content Offset for Fixed Navbar */
+.app-content {
+  margin-top: 80px; /* Adjust based on navbar height */
+}
+
+/* Add Task Button */
+.btn-add-task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+  padding: 12px 25px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--box-shadow);
+}
+
+.btn-add-task:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-add-task svg {
+  font-size: 1.2rem;
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  width: 500px;
+  max-width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.4s ease-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.modal-close:hover {
+  transform: rotate(90deg);
+  color: var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Task List Container Styles */
+.task-list-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Task Grid Layout */
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* Task Card Styles */
+.task-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Task Card Status Variants */
+.task-pending {
+  border-top: 4px solid #f59e0b;
+}
+
+.task-in-progress {
+  border-top: 4px solid #3b82f6;
+}
+
+.task-completed {
+  border-top: 4px solid #10b981;
+}
+
+/* Task Card Content */
+.task-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+
+.task-card p {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Task Metadata */
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.task-meta span {
+  color: #6b7280;
+}
+
+.task-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* Status Badge Colors */
+.task-pending .task-status {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.task-in-progress .task-status {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.task-completed .task-status {
+  background-color: #d1fae5;
+  color: #047857;
+}
+
+/* Task Actions */
+.task-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.btn-edit,
+.btn-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+  transform: scale(1.05);
+}
+
+/* Icon Styles */
+.btn-edit svg {
+  color: #3b82f6;
+  font-size: 1.1rem;
+}
+
+.btn-delete svg {
+  color: #ef4444;
+  font-size: 1.1rem;
+}
+
+.btn-edit:hover {
+  background-color: #dbeafe;
+}
+
+.btn-delete:hover {
+  background-color: #fee2e2;
+}
+
+/* Empty State */
+.no-tasks {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1.1rem;
+  padding: 2rem;
+  background: #f3f4f6;
+  border-radius: 12px;
+  margin: 1rem 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .task-list-container {
+    padding: 1rem;
+  }
+  
+  .task-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Animation for new tasks */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-card {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Smooth transition for all interactive elements */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Optional: Custom Scrollbar */
+.task-list-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.task-list-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.task-list-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.task-list-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+
+/* Navbar Container */
+.navbar {
+  background: #ffffff;
+  padding: 1.25rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-radius: 0 0 16px 16px;
+  width: 100%;
+}
+
+/* Brand/Logo Styles */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.navbar-brand h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2196F3, #0D47A1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+/* Filter Buttons Container */
+.filter-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Filter Button Base Styles */
+.filter-btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: 25px;
+  border: 2px solid transparent;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+  color: #6c757d;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button Hover Effect */
+.filter-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Active Button States */
+.filter-btn.active {
+  border: none;
+  color: #fff;
+}
+
+/* Individual Button Styles */
+.filter-btn.all {
+  border-color: #e9ecef;
+}
+
+.filter-btn.all.active {
+  background: #6c757d;
+}
+
+.filter-btn.pending {
+  border-color: #fff3cd;
+}
+
+.filter-btn.pending.active {
+  background: #ffc107;
+}
+
+.filter-btn.in-progress {
+  border-color: #cfe2ff;
+}
+
+.filter-btn.in-progress.active {
+  background: #0d6efd;
+}
+
+.filter-btn.completed {
+  border-color: #d1e7dd;
+}
+
+.filter-btn.completed.active {
+  background: #198754;
+}
+
+/* Button Ripple Effect */
+.filter-btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+
+.filter-btn:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .filter-buttons {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand h1 {
+    font-size: 1.5rem;
+  }
+
+  .filter-buttons {
+    justify-content: center;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+}
+
+/* Optional: Add subtle animation for navbar on scroll */
+@keyframes navbarShadow {
+  from {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  }
+  to {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.navbar.scrolled {
+  animation: navbarShadow 0.3s ease forwards;
+}
+
+/* Add glass morphism effect */
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Add subtle hover animations for buttons */
+.filter-btn {
+  transform-origin: center;
+}
+
+.filter-btn:hover {
+  animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* Add these styles to your existing CSS */
+
+.navbar {
+  background: #ffffff;
+  padding: 1.25rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.status-filters {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.date-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.calendar-icon {
+  color: #2196F3;
+  font-size: 1.2rem;
+}
+
+.date-select {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 2px solid #e0e0e0;
+  background: #fff;
+  color: #333;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  min-width: 150px;
+}
+
+.date-select:hover {
+  border-color: #2196F3;
+}
+
+.date-select:focus {
+  border-color: #2196F3;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .filter-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .status-filters {
+    flex: 1;
+  }
+
+  .date-filter {
+    padding: 0;
+  }
+}
+
+/* Filter Button Styles */
+.filter-btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: 20px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #f5f5f5;
+  color: #666;
+}
+
+.filter-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn.active {
+  color: #fff;
+}
+
+.filter-btn.all.active {
+  background: #607d8b;
+}
+
+.filter-btn.pending.active {
+  background: #ff9800;
+}
+
+.filter-btn.in-progress.active {
+  background: #2196F3;
+}
+
+.filter-btn.completed.active {
+  background: #4caf50;
+}
+
+/* Animation for filter changes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-card {
+  animation: fadeIn 0.3s ease-out;
 }
